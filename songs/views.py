@@ -21,7 +21,7 @@ BELLA_EDITION = '0RGnFMea6kT6T2osSiKSEK'
 
 
 headers = {
-    'Authorization': 'Bearer BQAjOHBebKibdtQY4EQHQlrY7ce7nP5p-BFqzNdeiuXXus1bvdrrjR07ChjV9KPrx3n872M6_G1n4fmBD1aQU4BHKYyvgdvjOf61WjU8QdUhZ0rTPEf6NzB5pBxj1Siy71D61CvgMT2qMyquJ9kfvhV5xOet-LxdnibXMxed9l0ydHjzMIMEfI3ZYqVan1g'}
+    'Authorization': 'Bearer BQCT2qqRgKavq1J9wIqfXS70fxxh3CEw83IdkQ7dTSamgCDpy3Hmm_zjOBGFG2SCwTUpUj-vPcdlcWnR0TCOIzOA4bHnD7QQkV0XxWWIksUdYkC6_V9MsqvJxSIv_HyFwkiL8AGJ4e_A2vyluUvZ5-IYTCMTlxqg7alHfPH4q1o3aUYwlOzEzaT-Atg2Tp0'}
 
 
 # Create your views here.
@@ -52,7 +52,7 @@ def populate_db_fromspot(req):
     for i in range(7):
 
         req = requests.get(
-            f'https://api.spotify.com/v1/playlists/{BELLA_EDITION}/tracks?limit=100&offset={i * 100}',
+            f'https://api.spotify.com/v1/playlists/{GENERAL}/tracks?limit=100&offset={i * 100}',
             headers=headers)
 
         result = req.json()['items']
