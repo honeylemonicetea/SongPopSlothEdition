@@ -21,7 +21,7 @@ BELLA_EDITION = '0RGnFMea6kT6T2osSiKSEK'
 
 
 headers = {
-    'Authorization': 'Bearer BQCT2qqRgKavq1J9wIqfXS70fxxh3CEw83IdkQ7dTSamgCDpy3Hmm_zjOBGFG2SCwTUpUj-vPcdlcWnR0TCOIzOA4bHnD7QQkV0XxWWIksUdYkC6_V9MsqvJxSIv_HyFwkiL8AGJ4e_A2vyluUvZ5-IYTCMTlxqg7alHfPH4q1o3aUYwlOzEzaT-Atg2Tp0'}
+    'Authorization': 'Bearer BQChF86chAg_l3TYiucZfXERKl7-M56NfpRtk-1ZQ_PFSqBjY6brLSZsu1K3X4NHj0yc67VHupSPibnrWAPkXUId7Q6ShT8W3iZ8n8RRit3HNsH-LlLwqcNoBeeJYmnh0QvAlhzff8-Sv1pV3jrUw8QTHH_izz-Z7iGBrLmRveWLzt-llspnLP8v2vJFygY'}
 
 
 # Create your views here.
@@ -52,7 +52,7 @@ def populate_db_fromspot(req):
     for i in range(7):
 
         req = requests.get(
-            f'https://api.spotify.com/v1/playlists/{GENERAL}/tracks?limit=100&offset={i * 100}',
+            f'https://api.spotify.com/v1/playlists/{GREG_EDITION}/tracks?limit=100&offset={i * 100}',
             headers=headers)
 
         result = req.json()['items']
@@ -68,7 +68,8 @@ def populate_db_fromspot(req):
             song_dict['artist'] = artist
             song_dict['album'] = album
             song_dict['preview'] = song_prev
-            artist_slug = artist.lower().replace(" ", "-")
+            no_amp = artist.replace("&","")
+            artist_slug = no_amp.lower().replace(" ", "-")
             song_dict['slug'] = artist_slug
             all_songs.append(song_dict)
 
